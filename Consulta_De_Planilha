@@ -1,0 +1,17 @@
+from openpyxl import load_workbook
+caminho = 'Aprendendoalerplanilhas.xlsx'
+arquivo_excel = load_workbook(caminho, data_only=True)
+planilha = arquivo_excel.active
+maior_comissao = planilha[f'H{5}'].value
+menor_comissao = planilha[f'H{5}'].value
+maior_vendedor = planilha[f'F{5}'].value
+menor_vendedor = planilha[f'F{5}'].value
+for i in range(5, 23):
+    if planilha[f'H{i}'].value >= maior_comissao:
+        maior_comissao = planilha[f'H{i}'].value
+        maior_vendedor = planilha[f'F{i}'].value
+    elif planilha[f'H{i}'].value <= menor_comissao:
+      menor_comissao = planilha[f'H{i}'].value
+      menor_vendedor = planilha[f'F{i}'].value
+print('Vendedor com maior comissao é: %s. A comissao foi de:R$%d' %(maior_vendedor,maior_comissao))
+print('Vendedor com menor comissao é: %s. A comissao foi de:R$%d' %(menor_vendedor,menor_comissao))
