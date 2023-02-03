@@ -1,0 +1,8 @@
+hora = int(input('Quantidade de horas trabalhadas: '))
+valorhora = float(input('Valor por hora trabalhada: '))
+salario = hora*valorhora
+print('Salario bruto:R$', salario)
+print('Imposto:R$', salario*0.11)
+print('INSS:R$', salario*0.8)
+print('Sindicato:R$', salario*0.5)
+print('Salario liquido:R$', salario-(salario*0.24))
