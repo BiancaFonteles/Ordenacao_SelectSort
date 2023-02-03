@@ -1,0 +1,67 @@
+matriz = [[0,0,0],[0,0,0],[0,0,0]]
+pares = []
+impares = []
+soma_linha = []
+soma_coluna = []
+soma_matriz = somapares = somarimpares = maiorvalor1 = maiorvalor2 = maiorvalor3 = 0
+
+l = int(input("Digite o valor da linha que deseja somar:"))
+c = int(input("Digite o valor da coluna que deseja somar:"))
+
+for linha in range(0,3):
+    for coluna in range(0,3):
+        matriz[linha][coluna] = int(input(f'Digite um valor para [{linha},{coluna}]: '))
+        soma_matriz += matriz[linha][coluna]
+        if matriz[linha][coluna] % 2 == 0:
+            pares.append(matriz[linha][coluna])
+            somapares += matriz[linha][coluna]
+        else:
+            impares.append(matriz[linha][coluna])
+            somarimpares += matriz[linha][coluna]
+        if l == linha:
+          soma_linha.append(matriz[linha][coluna])
+        if c == coluna:
+          soma_coluna.append(matriz[linha][coluna])
+
+print('-='*30)
+
+print('o resultado da sua matriz é: ')
+for linha in range(0, 3):
+    for coluna in range(0, 3):
+        print(f'[{matriz[linha][coluna]:^5}]', end='')
+    print()
+print()
+#soma dos elementos da matriz
+print('A soma dos elementos na matriz é:', soma_matriz)
+#numeros pares e impares da matriz
+print('Os numeros pares da matriz são:', pares)
+print('Os numeros impares da matriz são:', impares)
+#soma numeros pares e impares
+print('A soma dos pares é:', somapares)
+print('A soma dos impares é:', somarimpares)
+#somando linha e coluna
+print('O resultado da soma da linha é:%d' %(sum(soma_linha)))
+print('O resultado da coluna da linha é:%d' %(sum(soma_coluna)))
+#Maior valor da matriz
+for coluna in range(0,3):
+    if coluna == 1:
+        maiorvalor2 = matriz[1][coluna]
+    elif matriz[2][coluna] > maiorvalor2:
+        maiorvalor2 = matriz[1][coluna]
+for coluna in range(0,3):
+    if coluna == 0:
+        maiorvalor1 = matriz[0][coluna]
+    elif matriz[0][coluna] > maiorvalor1:
+        maiorvalor1 = matriz[0][coluna]
+for coluna in range(0,3):
+    if coluna == 2:
+        maiorvalor3 = matriz[2][coluna]
+    elif matriz[2][coluna] > maiorvalor3:
+        maiorvalor3 = matriz[2][coluna]
+
+if maiorvalor1 > maiorvalor2 and maiorvalor1 > maiorvalor3:
+    print('O maior valor da matriz é: ', maiorvalor1)
+elif maiorvalor2 > maiorvalor1 and maiorvalor2 > maiorvalor3:
+    print('O maior valor da matriz é: ', maiorvalor2)
+elif maiorvalor3 > maiorvalor1 and maiorvalor3 > maiorvalor2:
+    print('O maior valor da matriz é: ', maiorvalor3)
